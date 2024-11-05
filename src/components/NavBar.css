@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+  background-color: bisque;
+}
+
+.navbar > * {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.browse-link {
+  margin: auto;
+  margin-right: 1rem;
+}
+
+.home-logo {
+  margin-left: 1rem;
+  color: red;
+}
