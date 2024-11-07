@@ -5,6 +5,7 @@ function ProductCard({ product }) {
         <img
           src={product.image}
           alt={product.title}
+          width={"150px"}
           className="product-image"
         />
         <h2 className="product-title">{product.title}</h2>
