@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
+import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 //import "./homepage.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./NavBar";
 
 function Homepage() {
   return (
     <>
-      <NavBar />
       <div>___</div>
       <div>
         <a href="https://vite.dev" target="_blank">

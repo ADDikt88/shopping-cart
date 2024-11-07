@@ -3,19 +3,30 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "./App.css";
-import Homepage from "./Homepage.jsx";
-import Shopping from "./Shopping.jsx";
-import ErrorPage from "./ErrorPage.jsx";
+import Homepage from "./components/Homepage.jsx";
+import Shopping from "./components/Shopping.jsx";
+import Cart from "./components/Cart.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
+import App from "./App.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Homepage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "shopping",
-    element: <Shopping />,
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Homepage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "shopping",
+        element: <Shopping />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+    ],
   },
 ]);
 

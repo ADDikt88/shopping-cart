@@ -5,7 +5,7 @@ import "./NavBar.css";
 function NavBar() {
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
         <Link to="/" className="home-logo">
           Snowy's Board Game Store
         </Link>
@@ -17,7 +17,7 @@ function NavBar() {
         <Link to="/cart" className="cart-link">
           Cart
         </Link>
-      </div>
+      </nav>
     </>
   );
 }
