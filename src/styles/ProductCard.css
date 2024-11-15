@@ -1,0 +1,19 @@
+/* ProductCard.css */
+
+.addToCartButton {
+  background-color: #007bff; /* Normal button color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addToCartButton:disabled {
+  cursor: not-allowed; /* Ensures a non-clickable appearance */
+}
+
+.addedToCart {
+  background-color: green; /* Green background for "Added to Cart!" state */
+  color: #fff;
+}
