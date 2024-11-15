@@ -4,7 +4,7 @@ import { CartContext } from "../contexts/CartContext";
 //import "./cart.css";
 
 function Cart() {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const { cart, removeFromCart, totalCost } = useContext(CartContext);
 
   return (
     <>
@@ -24,7 +24,11 @@ function Cart() {
               />
               <div>
                 <h2 className="product-title">{product.title}</h2>
-                <p className="product-price">{product.price}</p>
+                <p className="product-quantity">Quantity: {product.quantity}</p>
+                <p className="product-price-total">
+                  Subtotal:{" "}
+                  {Math.ceil(product.price * product.quantity * 100) / 100}
+                </p>
                 <button
                   className="remove-from-cart-btn"
                   onClick={() => removeFromCart(product.id)}
@@ -34,6 +38,7 @@ function Cart() {
               </div>
             </li>
           ))}
+          <h2 className="total-cost">Total: {totalCost()}</h2>
         </ul>
       )}
     </>
