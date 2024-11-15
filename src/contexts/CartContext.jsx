@@ -3,7 +3,9 @@ import { createContext, useState } from "react";
 //Create cart context
 export const CartContext = createContext();
 
-function CartProvider({ children }) {
+//Create cart provider which can access the Cart Context
+//You will wrap the app in this function, so all its children will have access to 'value'
+export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   function addToCart(product) {
@@ -21,6 +23,4 @@ function CartProvider({ children }) {
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-}
-
-export default CartProvider;
+};
