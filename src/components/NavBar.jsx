@@ -15,8 +15,7 @@ function NavBar() {
         <Link to="/shopping" className="browse-link">
           Browse Collection
         </Link>
-        <Link to="/shopping">History</Link>
-        <Link to="/shopping">Contact Us</Link>
+        <Link to="/contact">Contact Us</Link>
         <Link to="/cart" className="cart-link">
           {cart.length > 0 && ` [${totalItems()}] `}
           Cart

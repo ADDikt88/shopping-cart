@@ -8,6 +8,7 @@ import Homepage from "./components/Homepage.jsx";
 import Shopping from "./components/Shopping.jsx";
 import Cart from "./components/Cart.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
+import Contact from "./components/Contact.jsx";
 import App from "./App.jsx";
 
 const router = createBrowserRouter([
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },
