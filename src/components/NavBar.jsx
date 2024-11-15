@@ -1,6 +1,6 @@
 //import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+import "../styles/NavBar.css";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
@@ -18,7 +18,8 @@ function NavBar() {
         <Link to="/shopping">History</Link>
         <Link to="/shopping">Contact Us</Link>
         <Link to="/cart" className="cart-link">
-          {cart.length > 0 && totalItems()} Cart
+          {cart.length > 0 && ` [${totalItems()}] `}
+          Cart
         </Link>
       </nav>
     </>
