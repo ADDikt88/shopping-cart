@@ -44,17 +44,21 @@ function ProductCard({ product }) {
       <div className="product-card">
         <img
           src={product.image}
-          alt={product.title}
-          width={"150px"}
+          alt={product.name}
+          width={"200px"}
           className="product-image"
         />
-        <h2 className="product-title">{product.title}</h2>
-        <p className="product-price">{product.price}</p>
+        <h2 className="product-name">{product.name}</h2>
+        {/* <p className="product-description">{product.description}</p> */}
+        <p className="playingTime">Play Time: {product.playingTime} mins</p>
+        <p className="playerCount">Player Count: {product.playerCount}</p>
+        <p className="product-price">${product.price}</p>
         <div className="quantity-container" style={quantityContainerStyle}>
           <button className="button-counters" onClick={handleDecrement}>
             -
           </button>
           <input
+            className="input-counter"
             type="number"
             value={quantity}
             onChange={handleInputChange}
