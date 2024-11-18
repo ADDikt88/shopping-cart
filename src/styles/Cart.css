@@ -1,0 +1,9 @@
+.product-info {
+  margin: auto 0 auto auto;
+  text-align: right;
+  min-width: 200px;
+}
+
+.product-info > * {
+  margin: 0.5rem;
+}

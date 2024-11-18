@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
-//import "./cart.css";
+import "../styles/Cart.css";
 
 function Cart() {
   const { cart, removeFromCart, totalCost } = useContext(CartContext);
@@ -16,17 +16,19 @@ function Cart() {
           {" "}
           {cart.map((product) => (
             <li key={product.id} style={cartItemStyle}>
-              <img
-                src={product.image}
-                alt={product.title}
-                width={"150px"}
-                className="product-image"
-              />
+              <div style={{ textAlign: "center", minWidth: "300px" }}>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  height={"180px"}
+                  className="product-image"
+                />
+              </div>
               <h2 className="product-title" style={{ margin: "0" }}>
                 {product.title}
               </h2>
-              <div style={{ margin: "auto 0 auto auto", textAlign: "right" }}>
-                <p className="product-quantity">Unit Price: {product.price}</p>
+              <div className="product-info">
+                <p className="product-price">Unit Price: {product.price}</p>
                 <p className="product-quantity">Quantity: {product.quantity}</p>
                 <h3 className="product-price-total">
                   Subtotal:{" "}
@@ -60,7 +62,7 @@ function Cart() {
 
 const cartItemStyle = {
   display: "flex",
-  alignItems: "flex-start",
+  alignItems: "center",
   gap: "1rem",
   width: "100%",
 };
@@ -70,6 +72,7 @@ const cartListStyle = {
   flexDirection: "column",
   alignItems: "flex-start",
   width: "80%",
+  gap: "1rem",
 };
 
 const removeButtonStyle = {
