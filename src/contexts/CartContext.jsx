@@ -8,7 +8,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  function addToCart(product) {
+  function addToCart(product, quantity) {
     setCart((prevCart) => {
       //Check if existing product, returns a boolean
       const existingProduct = prevCart.find((item) => item.id == product.id);
@@ -17,12 +17,12 @@ export const CartProvider = ({ children }) => {
         //Use map if editing an existing list to return a list of same size
         return prevCart.map((item) =>
           item.id == product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
         //Add quantity to product
-        return [...prevCart, { ...product, quantity: 1 }];
+        return [...prevCart, { ...product, quantity }];
       }
     });
   }
