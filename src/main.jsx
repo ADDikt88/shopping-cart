@@ -10,6 +10,7 @@ import Cart from "./components/Cart.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Contact from "./components/Contact.jsx";
 import App from "./App.jsx";
+import ProductPage from "./components/ProductPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "shopping",
         element: <Shopping />,
+      },
+      {
+        path: "shopping/:productId",
+        element: <ProductPage />,
       },
       {
         path: "cart",

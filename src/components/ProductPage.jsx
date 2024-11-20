@@ -1,15 +1,11 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
-import "../styles/ProductCard.css";
-
-function ProductCard({ product }) {
-  //use cart context to add item
+import { useContext, useState } from "react";
+const ProductPage = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
-  const [isAdding, setIsAdding] = useState(false);
-
   const [quantity, setQuantity] = useState(1);
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
@@ -42,17 +38,16 @@ function ProductCard({ product }) {
 
   return (
     <>
-      <div className="product-card">
-        <Link to={`/shopping/${product.id}`}>
-          <img
-            src={product.image}
-            alt={product.name}
-            width={"180px"}
-            className="product-image"
-          />
-        </Link>
+      <div className="product-page">
+        <img
+          src={product.image}
+          alt={product.name}
+          width={"180px"}
+          className="product-image"
+        />
+
         <h2 className="product-name">{product.name}</h2>
-        {/* <p className="product-description">{product.description}</p> */}
+        <p className="product-description">{product.description}</p>
         <p className="playingTime">Play Time: {product.playingTime} mins</p>
         <p className="playerCount">Player Count: {product.playerCount}</p>
         <p className="product-price">${product.price}</p>
@@ -82,7 +77,7 @@ function ProductCard({ product }) {
       </div>
     </>
   );
-}
+};
 
 const quantityContainerStyle = {
   display: "flex",
@@ -91,4 +86,4 @@ const quantityContainerStyle = {
   margin: "10px 0",
 };
 
-export default ProductCard;
+export default ProductPage;
