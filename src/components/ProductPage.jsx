@@ -1,7 +1,21 @@
 //import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
-import { useContext, useState } from "react";
-const ProductPage = ({ product }) => {
+import { useContext, useState, useEffect } from "react";
+import { useLocation, useParams, Link } from "react-router-dom";
+import { useProducts } from "../contexts/ProductContext.jsx";
+
+const ProductPage = () => {
+  //load product detail
+  const { productId } = useParams();
+  const { products } = useProducts();
+
+  console.log(productId);
+  console.log(products);
+  console.log(products);
+
+  const product = products.find((p) => p.id === Number(productId));
+  console.log(product);
+
   const { addToCart } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
@@ -74,6 +88,10 @@ const ProductPage = ({ product }) => {
         >
           {isAdding ? `Added ${quantity} to Cart!` : `Add ${quantity} to Cart`}
         </button>
+        <div></div>
+        <Link to="/shopping">
+          You can go back to browsing the entire collection by clicking here.
+        </Link>
       </div>
     </>
   );

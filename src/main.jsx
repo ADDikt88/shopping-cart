@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CartProvider } from "./contexts/CartContext.jsx";
+import { ProductProvider } from "./contexts/ProductContext";
 import "./index.css";
 import "./App.css";
 import Homepage from "./components/Homepage.jsx";
@@ -24,10 +25,12 @@ const router = createBrowserRouter([
       {
         path: "shopping",
         element: <Shopping />,
+        //loader: fetchBoardGameInfo,
       },
       {
         path: "shopping/:productId",
         element: <ProductPage />,
+        //loader: fetchBoardGameInfo,
       },
       {
         path: "cart",
@@ -48,7 +51,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
-      <RouterProvider router={router} />
+      <ProductProvider>
+        <RouterProvider router={router} />
+      </ProductProvider>
     </CartProvider>
   </StrictMode>
 );

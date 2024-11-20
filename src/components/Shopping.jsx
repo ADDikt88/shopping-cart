@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
+import { useProducts } from "../contexts/ProductContext.jsx";
 //import "./Shopping.css";
 
 import ProductCard from "./ProductCard.jsx";
@@ -58,80 +60,17 @@ const boardGames = [
 ];
 
 function Shopping() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBoardGameDetails = async () => {
-      try {
-        const updatedProducts = await Promise.all(
-          boardGames.map(async (game) => {
-            // Fetch data for each game by ID (adjust API endpoint as needed)
-            const response = await fetch(
-              `https://boardgamegeek.com/xmlapi2/thing?id=${game.id}`
-            );
-            const text = await response.text();
-            const parser = new DOMParser();
-            const xml = parser.parseFromString(text, "text/xml");
-            const item = xml.querySelector("item");
-
-            // Pull only the fields you need from the API response
-            const name =
-              item.querySelector("name")?.getAttribute("value") ||
-              "Unknown Game";
-            const image =
-              item.querySelector("image")?.textContent ||
-              "https://via.placeholder.com/150";
-            const description =
-              item.querySelector("description")?.textContent ||
-              "No description available.";
-            const playingTime =
-              item.querySelector("playingtime")?.getAttribute("value") ||
-              "Unknown Playing Time";
-            const minplayers =
-              item.querySelector("minplayers")?.getAttribute("value") || "1";
-            const maxplayers =
-              item.querySelector("maxplayers")?.getAttribute("value") || "Many";
-            const playerCount = `${minplayers} to ${maxplayers}`;
-
-            // Merge custom price with API data
-            return {
-              id: game.id,
-              title: game.title,
-              name,
-              image,
-              description,
-              playingTime,
-              playerCount,
-              price: game.price,
-            };
-          })
-        );
-
-        setProducts(updatedProducts);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching board game data:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchBoardGameDetails();
-  }, []);
-
+  const { products } = useProducts();
+  console.log(products);
   return (
     <>
       <div className="main-container">
         <h1>Collection</h1>
         <p>Here are all the latest board games for you to purchase.</p>
         <div className="product-grid-container" style={gridContainerStyle}>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
-          )}
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </>
