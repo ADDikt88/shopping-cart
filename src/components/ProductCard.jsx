@@ -55,7 +55,7 @@ function ProductCard({ product }) {
         {/* <p className="product-description">{product.description}</p> */}
         <p className="playingTime">Play Time: {product.playingTime} mins</p>
         <p className="playerCount">Player Count: {product.playerCount}</p>
-        <p className="product-price">${product.price}</p>
+        <h2 className="product-price">${product.price}</h2>
         <div className="quantity-container" style={quantityContainerStyle}>
           <button className="button-counters" onClick={handleDecrement}>
             -

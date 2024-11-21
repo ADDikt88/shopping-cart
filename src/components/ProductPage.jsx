@@ -4,17 +4,21 @@ import { useContext, useState, useEffect } from "react";
 import { useLocation, useParams, Link } from "react-router-dom";
 import { useProducts } from "../contexts/ProductContext.jsx";
 
+import "../styles/ProductPage.css";
+
 const ProductPage = () => {
   //load product detail
   const { productId } = useParams();
-  const { products } = useProducts();
 
-  console.log(productId);
-  console.log(products);
-  console.log(products);
+  const { products, loading, error } = useProducts();
+  const [product, setProduct] = useState(null);
 
-  const product = products.find((p) => p.id === Number(productId));
-  console.log(product);
+  useEffect(() => {
+    const foundProduct = products.find((p) => p.id === Number(productId));
+    if (foundProduct) {
+      setProduct(foundProduct);
+    }
+  }, [products, productId]);
 
   const { addToCart } = useContext(CartContext);
 
@@ -50,6 +54,10 @@ const ProductPage = () => {
     }
   };
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!product) return <div>Product not found!</div>;
+
   return (
     <>
       <div className="product-page">
@@ -61,7 +69,7 @@ const ProductPage = () => {
         />
 
         <h2 className="product-name">{product.name}</h2>
-        <p className="product-description">{product.description}</p>
+        <p className="product-short-description">{product.shortDesc}</p>
         <p className="playingTime">Play Time: {product.playingTime} mins</p>
         <p className="playerCount">Player Count: {product.playerCount}</p>
         <p className="product-price">${product.price}</p>

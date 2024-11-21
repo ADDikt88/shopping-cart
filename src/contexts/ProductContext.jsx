@@ -4,6 +4,8 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const boardGames = [
@@ -52,6 +54,7 @@ export const ProductProvider = ({ children }) => {
             const description =
               item.querySelector("description")?.textContent ||
               "No description available.";
+            const shortDesc = description.split("&#10")[0];
             const playingTime =
               item.querySelector("playingtime")?.getAttribute("value") ||
               "Unknown Playing Time";
@@ -68,6 +71,7 @@ export const ProductProvider = ({ children }) => {
               name,
               image,
               description,
+              shortDesc,
               playingTime,
               playerCount,
               price: game.price,
@@ -77,6 +81,9 @@ export const ProductProvider = ({ children }) => {
         setProducts(updatedProducts);
       } catch (error) {
         console.error("Error fetching board game data:", error);
+        setError("Failed to fetch products");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -84,7 +91,7 @@ export const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, loading, error }}>
       {children}
     </ProductContext.Provider>
   );
