@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Slide from "./Slide.jsx";
-import "../styles/Slideshow.css";
 
 const Slideshow = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,15 +42,15 @@ const Slideshow = ({ slides }) => {
         </div>
         {/* Navigation Buttons */}
         <button className="prev-button" onClick={goPrevSlide}>
-          &#8592;
+          {"<"}
         </button>
         <button className="next-button" onClick={goNextSlide}>
-          &#8594;
+          {">"}
         </button>
 
         {/* Dots for Navigation */}
         <div className="dots">
-          {slides.map((_, index) => (
+          {slides.map((slide, index) => (
             <span
               key={index}
               className={`dot ${index === currentIndex ? "active" : ""}`}
