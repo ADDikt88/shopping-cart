@@ -2,10 +2,11 @@
   display: flex;
   width: 100%;
   padding: 10px 0;
-  background-color: bisque;
+  background-color: rgb(194, 210, 211);
 }
 
 .navbar > * {
+  margin: auto;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -18,4 +19,5 @@
 .home-logo {
   margin-left: 1rem;
   color: red;
+  font-size: 2rem;
 }

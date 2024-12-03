@@ -1,0 +1,10 @@
+.footer {
+  background-color: rgb(194, 210, 211);
+  width: 100%;
+  text-align: center;
+}
+
+.footer > * {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

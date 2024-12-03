@@ -68,7 +68,7 @@ const ProductPage = () => {
           className="product-image"
         />
 
-        <h2 className="product-name">{product.name}</h2>
+        <h1 className="product-name">{product.name}</h1>
         <p className="product-short-description">{product.shortDesc}</p>
         <p className="playingTime">Play Time: {product.playingTime} mins</p>
         <p className="playerCount">Player Count: {product.playerCount}</p>
@@ -96,10 +96,14 @@ const ProductPage = () => {
         >
           {isAdding ? `Added ${quantity} to Cart!` : `Add ${quantity} to Cart`}
         </button>
-        <div></div>
-        <Link to="/shopping">
-          You can go back to browsing the entire collection by clicking here.
-        </Link>
+        <div style={hyperlinkStyle}>
+          <Link to="/shopping">
+            <h2>Continue Shopping!</h2>
+          </Link>
+          <Link to="/cart">
+            <h2>Ready to checkout...</h2>
+          </Link>
+        </div>
       </div>
     </>
   );
@@ -110,6 +114,13 @@ const quantityContainerStyle = {
   alignItems: "center",
   justifyContent: "center",
   margin: "10px 0",
+};
+
+const hyperlinkStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "4rem",
 };
 
 export default ProductPage;

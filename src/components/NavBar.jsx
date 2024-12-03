@@ -10,7 +10,7 @@ function NavBar() {
     <>
       <nav className="navbar">
         <Link to="/" className="home-logo">
-          Snowy's Board Game Store
+          <b>Snowy's Board Game Emporium</b>
         </Link>
         <Link to="/shopping" className="browse-link">
           Browse Collection

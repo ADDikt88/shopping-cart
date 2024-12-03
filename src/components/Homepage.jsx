@@ -16,25 +16,28 @@ const slides = [
     title: "New Arrivals",
     description:
       "Check out ALL of our latest board games added to our collection!",
+    link: "/shopping",
   },
   {
     image: bg_slide2,
     title: "Game of the Month",
     description:
       "Discover the most popular board game this month: Viticulture!",
+    link: "/shopping/183394",
   },
   {
     image: xmas_slide,
     title: "Holiday Sale",
     description:
       "Get up to 50% off on selected board games this holiday season!",
+    link: "/shopping",
   },
 ];
 
 function Homepage() {
   return (
     <>
-      <h1>Ultimate Board Game Emporium</h1>
+      {/* <h1>Ultimate Board Game Emporium</h1> */}
       <Slideshow slides={slides} />
       <Link to="/shopping">
         <button style={shopButtonStyle}>Shop Now</button>
@@ -47,7 +50,7 @@ export default Homepage;
 
 const shopButtonStyle = {
   fontSize: "2rem",
-  margin: "2rem",
+  margin: "1rem",
   backgroundColor: "#007bff",
   color: "#fff",
   border: "none",

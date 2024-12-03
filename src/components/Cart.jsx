@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
 
 import "../styles/Cart.css";
 
@@ -44,9 +45,34 @@ function Cart() {
               </div>
             </li>
           ))}
+          <Link
+            to="/shopping"
+            style={{
+              alignSelf: "center",
+            }}
+          >
+            <h2>Click to add more items!</h2>
+          </Link>
           <div style={{ border: "1px solid black", width: "100%" }}></div>
-          <h2 className="total-cost" style={{ alignSelf: "flex-end" }}>
-            Total: {Math.ceil(totalCost() * 100) / 100}
+          <h2
+            className="total-cost"
+            style={{
+              alignSelf: "flex-end",
+              margin: "0",
+              textDecoration: "line-through",
+              color: "gray",
+            }}
+          >
+            Grand Subtotal: {Math.ceil(totalCost() * 100) / 100}
+          </h2>
+          <h2 style={{ alignSelf: "flex-end", margin: "0", color: "red" }}>
+            50% Holiday Discount APPLIED!
+          </h2>
+          <h2
+            className="total-cost"
+            style={{ alignSelf: "flex-end", margin: "0" }}
+          >
+            Grand Total: {Math.ceil(totalCost() * 50) / 100}
           </h2>
           <button
             onClick={() => alert("This is a fake store!")}

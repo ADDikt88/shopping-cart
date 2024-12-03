@@ -64,7 +64,7 @@ function Shopping() {
   console.log(products);
   return (
     <>
-      <div className="main-container">
+      <div className="shopping-container">
         <h1>Collection</h1>
         <p>Here are all the latest board games for you to purchase.</p>
         <div className="product-grid-container" style={gridContainerStyle}>
