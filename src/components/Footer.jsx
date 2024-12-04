@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Snowy's Board Game Emporium. All rights reserved.</p>
+      <p>
+        <Link to="/">&copy; 2024 Snowy's Board Game Emporium.</Link>
+      </p>
       <p>
         <Link to="/contact">Terms of Service</Link> |{" "}
         <Link to="/contact">Privacy Policy</Link> |{" "}

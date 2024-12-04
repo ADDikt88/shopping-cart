@@ -57,3 +57,14 @@
 .read-the-docs {
   color: #888;
 }
+
+@media screen and (max-width: 550px) {
+  .title {
+    font-size: 1.7rem;
+    margin-top: 10px;
+  }
+  .rules,
+  .game-over-display {
+    margin: 5px 10px;
+  }
+}

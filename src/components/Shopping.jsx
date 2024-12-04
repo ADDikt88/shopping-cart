@@ -65,7 +65,7 @@ function Shopping() {
   return (
     <>
       <div className="shopping-container">
-        <h1>Collection</h1>
+        <h1 style={{ margin: "16px" }}>Collection</h1>
         <p>Here are all the latest board games for you to purchase.</p>
         <div className="product-grid-container" style={gridContainerStyle}>
           {products.map((product) => (
@@ -85,6 +85,7 @@ const gridContainerStyle = {
   padding: "16px",
   margin: "16px",
   width: "100%",
+  justifyContent: "center",
 };
 
 export default Shopping;

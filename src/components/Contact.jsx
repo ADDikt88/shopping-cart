@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "../styles/Contact.css";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className="contact-us-page">
       <h1>{"Contact Us"}</h1>
       <p>
         <b>Phone:</b> 314-159-2653
@@ -12,27 +13,19 @@ const ContactUs = () => {
         <b>Github:</b> <a href="https://github.com/ADDikt88">github/ADDikt88</a>
       </p>
       <h2>Terms of Service</h2>
-      <p>
+      <p className="contact-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        <br></br>
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        <br></br>
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        <br></br>
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        <br></br>
         velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <h2>Privacy Policy</h2>
-      <p>
+      <p className="contact-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        <br></br>
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        <br></br>
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        <br></br>
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        <br></br>
         velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <Link to="/">

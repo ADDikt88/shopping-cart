@@ -1,0 +1,13 @@
+.contact-us-page {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.contact-content {
+  text-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+}
