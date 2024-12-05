@@ -41,7 +41,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  .home-logo {
+  .browse-link,
+  .cart-link {
     display: none;
   }
   .navbar-content > * {

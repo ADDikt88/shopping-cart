@@ -91,3 +91,25 @@
 .slideshow .dot.active {
   background-color: black;
 }
+
+@media screen and (max-width: 960px) {
+  .slideshow .prev-button,
+  .slideshow .next-button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .slide-content {
+    padding: 20px 50px;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    min-width: 220px;
+  }
+  .slide-content > h1 {
+    font-size: 32px;
+  }
+  .slide-content > h2 {
+    font-size: 16px;
+  }
+}
