@@ -23,7 +23,7 @@
 
 .home-logo {
   margin-left: 1rem;
-  color: red;
+  color: red !important;
   font-size: 2rem;
   font-weight: bold;
 }
@@ -41,11 +41,14 @@
 }
 
 @media screen and (max-width: 600px) {
-  .browse-link,
-  .cart-link {
-    display: none;
+  .navbar-content {
+    flex-direction: column;
   }
   .navbar-content > * {
     margin: auto;
+  }
+
+  .navbar {
+    background-image: linear-gradient(rgb(156, 156, 156), rgb(194, 210, 211));
   }
 }

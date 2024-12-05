@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useProducts } from "../contexts/ProductContext.jsx";
-//import "./Shopping.css";
+//import "../styles/Shopping.css";
 
 import ProductCard from "./ProductCard.jsx";
 
